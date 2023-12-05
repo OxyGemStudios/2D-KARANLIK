@@ -8,7 +8,6 @@ public class Player_Health : MonoBehaviour
 
 
     public int health = 100;
-    Animator animator;
     public int medkit = 1;
     void Start()
     {
@@ -22,25 +21,10 @@ public class Player_Health : MonoBehaviour
         Die();   
         TakeHeal();
 
-        if (Input.GetKeyDown(KeyCode.E)) { TakeDamage(30); }
+    
 
     }
-  public  void TakeDamage(int damage) 
-    {
-
-            
-            if (health >= damage) 
-            
-            { 
-            
-                health -= damage;
-            
-            } 
-            else
-            { 
-                health -= health;
-            }
-        
+  
         
         
         
