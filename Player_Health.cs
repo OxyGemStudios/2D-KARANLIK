@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour
 {
 
-
-    public int health = 100;
+    public Image HealthBar;
+    public float healthAmounth = 100;
     public int medkit = 1;
     void Start()
     {
@@ -18,50 +18,35 @@ public class Player_Health : MonoBehaviour
     void Update()
     {
   
-        Die();   
-        TakeHeal();
-
-    
-
-    }
-  
-        
-        
-        
-        
-        
-        
-    
-    
-    }
-
-    void TakeHeal() 
-    { if (Input.GetKeyDown(KeyCode.H)) 
+        Die();
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            if (medkit > 0 && health < 100)
-            {
+            TakeHeal(40);
+        }
+       
 
-                if (health <= 60 && health > 0)
-                {
-
-                    health += 40;
-
-                }
-
-                else if (health > 60)
-                {
-                    health += (100 - health);
-                }
-
-                medkit -= 1;
-            }
-         } 
-    
-    
-    
-    
-    
-    
     }
-    void Die() { if (health <= 0) {  } }
+
+    void TakeHeal(float healingAmounth)
+    {
+        if (medkit > 0)
+        {
+
+
+
+            healthAmounth += healingAmounth;
+            healthAmounth = Mathf.Clamp(healthAmounth, 0, 100);
+            HealthBar.fillAmount = healthAmounth / 100;
+
+
+
+
+
+            medkit -= 1;
+        }
+        
+    }
+    void TakeDamage(float damage) { healthAmounth -= damage; HealthBar.fillAmount = healthAmounth / 100; }
+     
+    void Die() { if (healthAmounth <= 0) {  } }
 }
