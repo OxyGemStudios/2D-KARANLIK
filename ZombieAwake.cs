@@ -39,7 +39,7 @@ public class ZombieAwake : MonoBehaviour
             
             if (sleeptime > 0  && detected ) { sleeptime -= Time.deltaTime; } else if (sleeptime <= 0) { isover = true; GetComponent<enemyfollow>().enabled = true; }
         }
-        else { detected = false;   if (!detected && sleeptime<=5  && !isover) { sleeptime += Time.deltaTime; } }
+        else { detected = false;   if (!detected && sleeptime<=3  && !isover) { sleeptime += Time.deltaTime; } }
             
         
 
