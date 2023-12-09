@@ -59,7 +59,12 @@ public class shooting : MonoBehaviour
             
             GameObject bullet = Instantiate(bulletprefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse);
+
+      
+
+
+
+            rb.AddForce(firePoint.up* bulletforce, ForceMode2D.Impulse);
 
         }
 
@@ -85,6 +90,11 @@ public class shooting : MonoBehaviour
 
         isReloading = false;
     }
+
+
+
+
+}
 
 
 
